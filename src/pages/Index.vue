@@ -113,10 +113,7 @@ export default {
       return msgs.length > 0 ? msgs.join(' & ') : null
     },
     maxPossibleChoresAffinity () {
-      const choresGroup = this.choiceGroups.find(choice => choice.title === 'Chores')
-      return this
-        .subtreeChoices(choresGroup)
-        .length
+      return this.numberOfChoicesInGroup('Chores')
       const chorseChoices = this
         .subtreeChoices(choresGroup)
         .reduce((runningTotal, choice) => {console.log(runningTotal, choice); return runningTotal + (choice.choresAffinity || 0)}, 0)
@@ -135,7 +132,41 @@ export default {
       +{{choiceData.fuckingAffinity}} Affinity for Fucking
     </p>
     */
+    },
+    maxPossibleTortureAffinity () {
+      return this.groupCount('Torture', this.subtreeChoices)
+    },
+    maxPossibleExtraBitsAffinity () {
+      return this.groupCount('Extra Bits', this.subtreeChoices)
+    },
+    maxPossibleFuckingAffinity () {
+      return this.groupCount('Fucking', this.subtreeChoices)
+    },
+    neededChoresAffinity () {
+      return this.groupCount('Chores', this.subtreeSelected)
+    },
+    neededChoresAffinity () {
+      return this.groupCount('Torture', this.subtreeSelected)
+    },
+    neededChoresAffinity () {
+      return this.groupCount('Extra Bits', this.subtreeSelected)
+    },
+    neededChoresAffinity () {
+      return this.groupCount('Fucking', this.subtreeSelected)
+    },
+    choresAffinity () {
+      return this.affinityCount('choresAffinity')
+    },
+    choresAffinity () {
+      return this.affinityCount('choresAffinity')
+    },
+    choresAffinity () {
+      return this.affinityCount('choresAffinity')
+    },
+    choresAffinity () {
+      return this.affinityCount('choresAffinity')
     }
+    
   },
   components: {ViewDeckCardGroup, ViewDeckFlat},
   methods: {
@@ -148,11 +179,17 @@ export default {
         params: {hash: this.getStatusHash()}
       })
     },
-    numberOfChoicesInGroup (title) {
-      const choresGroup = this.choiceGroups.find(choice => choice.title === 'Chores')
+    groupCount (title, choices) {
+      const choresGroup = this.choiceGroups.find(choice => choice.title === title)
+      return choices(choresGroup).length
+    },
+    affinityCount (affinityProp) {
       return this
-        .subtreeChoices(choresGroup)
-        .length
+        .selected
+        .reduce(
+          (runningTotal, choice) => runningTotal + (choice[affinityProp] || 0)
+          , 0
+        )
     }
   }
 }
