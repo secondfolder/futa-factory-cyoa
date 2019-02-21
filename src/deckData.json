@@ -6,8 +6,7 @@
   "authorLink": "",
   "description": "Just letting you know, this is a demo of <a href='https://github.com/callumgare/choice-assist/'>Choice Assist</a>. Which is intended for making interactive versions of <a href='https://www.reddit.com/r/makeyourchoice/'>these</a>, a kind of cross between a choose your own adventure novel and a deckbuilding game. So you probably wont find this particular example to be terribly exciting.",
   "img": "",
-  "imgSource": "https://www.pexels.com/photo/red-and-blue-hot-air-balloon-floating-on-air-on-body-of-water-during-night-time-36487/",
-  "budget": 10,
+  "imgSource": "",
   "contains": [
     {
       "title": "Personality",

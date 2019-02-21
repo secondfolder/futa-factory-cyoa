@@ -24,16 +24,6 @@
     </main>
     <footer :class="{overBudget: remaining < 0}">
       <div>
-        <div>
-          Budget:
-          <input
-            class="budget"
-            type="number"
-            v-model="deckData.budget"
-          >
-        </div>
-      </div>
-      <div>
         <button 
           v-if="$root.deckDataModified" 
           @click="$root.discardDraft"
