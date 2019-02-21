@@ -36,16 +36,28 @@
       </div>
       <div>
         <div v-if="unfulfilledAffinity('Chores') > 0">
-          Unfulfilled Fucking Affinity: {{unfulfilledAffinity('Chores')}}  
+          Unfulfilled Chores Affinity: {{unfulfilledAffinity('Chores')}}  
+          <span v-if="!affinityPossibleToFulfill('Torture')">
+            (not possible to fulfill because affinity is too high; +5 Stress)
+          </span>
+        </div>
+        <div v-if="unfulfilledAffinity('Torture') > 0">
+          Unfulfilled Torture Affinity: {{unfulfilledAffinity('Torture')}} 
+          <span v-if="!affinityPossibleToFulfill('Torture')">
+            (not possible to fulfill because affinity is too high; +5 Stress)
+          </span>
+        </div>
+        <div v-if="unfulfilledAffinity('Extra Bits') > 0">
+          Unfulfilled Extra Bits Affinity: {{unfulfilledAffinity('Extra Bits')}}  
+          <span v-if="!affinityPossibleToFulfill('Torture')">
+            (not possible to fulfill because affinity is too high; +5 Stress)
+          </span>
         </div>
         <div v-if="unfulfilledAffinity('Fucking') > 0">
           Unfulfilled Fucking Affinity: {{unfulfilledAffinity('Fucking')}}  
-        </div>
-        <div v-if="unfulfilledAffinity('Fucking') > 0">
-          Unfulfilled Fucking Affinity: {{unfulfilledAffinity('Fucking')}}  
-        </div>
-        <div v-if="unfulfilledAffinity('Fucking') > 0">
-          Unfulfilled Fucking Affinity: {{unfulfilledAffinity('Fucking')}}  
+          <span v-if="!affinityPossibleToFulfill('Torture')">
+            (not possible to fulfill because affinity is too high; +5 Stress)
+          </span>
         </div>
       </div>
       <div v-if="$root.deckDataModified" >
@@ -124,7 +136,7 @@ export default {
         msgs.push('Over Budget')
       }
       return msgs.length > 0 ? msgs.join(' & ') : null
-    }    
+    }
   },
   components: {ViewDeckCardGroup, ViewDeckFlat},
   methods: {
@@ -161,6 +173,9 @@ export default {
           (runningTotal, choice) => runningTotal + (choice[propMap[title]] || 0)
           , 0
         )
+    },
+    affinityPossibleToFulfill (title) {
+      return this.affinity(title) > this.maxPossibleAffinity(title)
     }
   }
 }

@@ -4,9 +4,8 @@
       <h1 
         v-if="groupData.title"
         :class="['groupTitle']" 
-      >
-        {{ groupData.title }}
-      </h1>
+        v-html="groupData.title"
+      />
       <span 
         v-if="groupData.maxSelectable"
         class="maxSelectable"
@@ -30,9 +29,7 @@
           @selectionChanged="setSelection"
         />
         <header v-else @click="clicked(child)">
-          <h1>
-            {{child.title}}
-          </h1>
+          <h1 v-html="child.title" />
           <span :class="['price', {cost: child.cost > 0, gain: child.cost < 0, neutral: !child.cost || child.cost === 0}]">
             {{ isNaN(child.cost) || child.cost === 0 ? 'No Cost' : Math.abs(child.cost)+' Points' }}
           </span>
