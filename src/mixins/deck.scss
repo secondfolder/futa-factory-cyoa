@@ -18,7 +18,7 @@ footer {
   padding: 0.5em;
   justify-content: space-between;
 }
-footer div > * {
+footer > div > * {
   margin: 0.5em;
   padding-top: 0.2em;
 }
@@ -45,3 +45,6 @@ footer.overBudget .remaining {
   font-size: 3em;
   line-height: 0.6em;
 }
+  
+/* Custom CSS */
+/* ... */
