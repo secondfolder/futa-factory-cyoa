@@ -53,10 +53,10 @@ export default {
       var choiceIdSize = this.metaDeckData.hashBytesPerChoice
 
       // create binary buffer
-      var hash = new ArrayBuffer(3 + (this.selected.length * choiceIdSize))
+      var hash = new ArrayBuffer(4 + (this.selected.length * choiceIdSize))
 
       // first byte of buffer = number of bytes to make choice ID
-      new Uint8Array(hash)[0] = 2 + choiceIdSize
+      new Uint8Array(hash)[0] = choiceIdSize
 
       // first byte of buffer = number of bytes to make choice ID
       new Uint8Array(hash)[1] = this.$root.budget
@@ -68,11 +68,11 @@ export default {
       // element size depends on the number of bytes needed to represent choice ID
       var selectedChoiceIds
       if (choiceIdSize === 1) {
-        selectedChoiceIds = new Uint8Array(hash, 1)
+        selectedChoiceIds = new Uint8Array(hash, 4)
       } else if (choiceIdSize === 2) {
-        selectedChoiceIds = new Uint16Array(hash, 1)
+        selectedChoiceIds = new Uint16Array(hash, 4)
       } else if (choiceIdSize === 3) {
-        selectedChoiceIds = new Uint32Array(hash, 1)
+        selectedChoiceIds = new Uint32Array(hash, 4)
       } else {
         throw new Error('Could not create array from buffer')
       }
@@ -90,15 +90,16 @@ export default {
       // then create a new array from remaining bytes of that type size
       var typedArray = Uint8Array.from(atob(hash), c => c.charCodeAt(0))
       var choiceIdSize = typedArray[0]
+      console.log(typedArray, typedArray[1])
       this.$root.budget = typedArray[1]
       this.$root.creativeMode = typedArray[2]
       var selectedChoiceIds
       if (choiceIdSize === 1) {
-        selectedChoiceIds = new Uint8Array(typedArray.buffer, 3)
+        selectedChoiceIds = new Uint8Array(typedArray.buffer, 4)
       } else if (choiceIdSize === 2) {
-        selectedChoiceIds = new Uint16Array(typedArray.buffer, 3)
+        selectedChoiceIds = new Uint16Array(typedArray.buffer, 4)
       } else if (choiceIdSize === 3) {
-        selectedChoiceIds = new Uint32Array(typedArray.buffer, 3)
+        selectedChoiceIds = new Uint32Array(typedArray.buffer, 4)
       }
       this.$root.selectedIds = Array.from(selectedChoiceIds)
     },

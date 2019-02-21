@@ -5,8 +5,11 @@
         Nothing selected 
       </div>
       <div v-else>
-        <div class="share-summary">
-          The choices have been made.
+        <div v-if="this.$root.creativeMode" class="share-summary">
+          These choices were made in creative mode.
+        </div>
+        <div v-else class="share-summary">
+        Budget: {{this.$root.budget}}
         </div>
         <view-deck-flat
           v-if="view === 'flat'"
