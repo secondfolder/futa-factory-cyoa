@@ -64,6 +64,7 @@
           v-text="changeRequiredMsg ? changeRequiredMsg : 'Confirm Choices'"
         />
       </div>
+      {{ maxPossibleChoresAffinity }}
     </footer>
   </div>  
 </template>
@@ -112,7 +113,28 @@ export default {
       return msgs.length > 0 ? msgs.join(' & ') : null
     },
     maxPossibleChoresAffinity () {
-      
+      const choresGroup = this.choiceGroups.find(choice => choice.title === 'Chores')
+      return this
+        .subtreeChoices(choresGroup)
+        .length
+      const chorseChoices = this
+        .subtreeChoices(choresGroup)
+        .reduce((runningTotal, choice) => {console.log(runningTotal, choice); return runningTotal + (choice.choresAffinity || 0)}, 0)
+      console.log('chores', chorseChoices)
+      /*
+    <p class="stat" v-if="choiceData.choresAffinity">
+      +{{choiceData.choresAffinity}} Affinity for Chores
+    </p>
+    <p class="stat" v-if="choiceData.tortureAffinity">
+      +{{choiceData.tortureAffinity}} Affinity for Torture
+    </p>
+    <p class="stat" v-if="choiceData.extraBitsAffinity">
+      +{{choiceData.extraBitsAffinity}} Affinity for Extra Bits
+    </p>
+    <p class="stat" v-if="choiceData.fuckingAffinity">
+      +{{choiceData.fuckingAffinity}} Affinity for Fucking
+    </p>
+    */
     }
   },
   components: {ViewDeckCardGroup, ViewDeckFlat},
@@ -125,6 +147,12 @@ export default {
         name: 'Share',
         params: {hash: this.getStatusHash()}
       })
+    },
+    numberOfChoicesInGroup (title) {
+      const choresGroup = this.choiceGroups.find(choice => choice.title === 'Chores')
+      return this
+        .subtreeChoices(choresGroup)
+        .length
     }
   }
 }
