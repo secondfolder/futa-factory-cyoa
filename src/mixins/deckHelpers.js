@@ -90,7 +90,6 @@ export default {
       // then create a new array from remaining bytes of that type size
       var typedArray = Uint8Array.from(atob(hash), c => c.charCodeAt(0))
       var choiceIdSize = typedArray[0]
-      console.log(typedArray, typedArray[1])
       this.$root.budget = typedArray[1]
       this.$root.creativeMode = typedArray[2]
       var selectedChoiceIds

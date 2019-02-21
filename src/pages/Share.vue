@@ -9,7 +9,7 @@
           These choices were made in creative mode.
         </div>
         <div v-else class="share-summary">
-        Budget: {{this.$root.budget}}
+          These choices were made with a budget of {{this.$root.budget}} stress.
         </div>
         <view-deck-flat
           v-if="view === 'flat'"

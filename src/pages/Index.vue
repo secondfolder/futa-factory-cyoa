@@ -18,12 +18,17 @@
     </main>
     <footer :class="{overBudget: remaining < 0}">
       <div>
-        <span class="remaining">
-          Remaining Points: {{ remaining }}
-        </span>
-        <span class="budget">
-          Budget: {{this.$root.budget}} <em>(randomly picked)</em>
-        </span>
+        <template v-if="$root.creativeMode">
+          <span class="remaining">
+            Remaining Points: {{ remaining }}
+          </span>
+          <span class="budget">
+            Budget: {{this.$root.budget}} <em>(randomly picked)</em>
+          </span>
+        </template>
+        <template v-else>
+          Creative Fantasy Mode ({{spent}} stress)
+        </template>
       </div>
       <div v-if="$root.deckDataModified" >
         <button 
@@ -97,7 +102,7 @@ export default {
       if (this.groupsNeedingMoreSelections.length > 0) {
         msgs.push('More Selections Required')
       }
-      if (this.remaining < 0) {
+      if (!this.$root.creativeMode && this.remaining < 0) {
         msgs.push('Over Budget')
       }
       return msgs.length > 0 ? msgs.join(' & ') : null
