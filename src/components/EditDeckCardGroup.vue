@@ -13,12 +13,12 @@
       <p class="selectableLimit">
         <span>Minimum Selectable:</span>
         <input
-          v-model="groupData.minSelectable"
+          v-model.number="groupData.minSelectable"
           type="number"
         ></input><br>
         <span>Maximum Selectable:</span>
         <input
-          v-model="groupData.maxSelectable"
+          v-model.number="groupData.maxSelectable"
           type="number"
         ></input>
       </p>
