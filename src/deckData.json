@@ -1,130 +1,428 @@
 {
-  "title": "Get A Life",
+  "title": "Futa Factory",
   "id": 4,
-  "version": "1.0",
-  "author": "Callum Gare",
-  "authorLink": "https://github.com/callumgare/",
+  "version": "1.1",
+  "author": "",
+  "authorLink": "",
   "description": "Just letting you know, this is a demo of <a href='https://github.com/callumgare/choice-assist/'>Choice Assist</a>. Which is intended for making interactive versions of <a href='https://www.reddit.com/r/makeyourchoice/'>these</a>, a kind of cross between a choose your own adventure novel and a deckbuilding game. So you probably wont find this particular example to be terribly exciting.",
-  "img": "hot_air_balloon.jpg",
+  "img": "",
   "imgSource": "https://www.pexels.com/photo/red-and-blue-hot-air-balloon-floating-on-air-on-body-of-water-during-night-time-36487/",
   "budget": 10,
   "contains": [
     {
-      "title": "Home",
-      "id": 11,
-      "description": "Where do you call home?",
+      "title": "Personality",
+      "id": 0,
+      "maxSelectable": 1,
+      "minSelectable": 1,
       "contains": [
         {
-          "title": "City",
+          "title": "Shy",
+          "id": 1,
+          "description": "Each <span class=\"task\">task</span> may be ignored up to two times before you are forced to complete it.",
+          "img": "personality_shy.png",
+          "maxSelectable": 1,
+          "cost": 5,
+          "choresAffinity": 1,
+          "tortureAffinity": 1
+        },
+        {
+          "title": "Disinterested",
+          "id": 2,
+          "description": "Half the frequency <span class=\"task\">task</span>.",
+          "img": "personality_disinterested.png",
+          "maxSelectable": 1,
+          "cost": 2,
+          "choresAffinity": 1,
+          "tortureAffinity": 2
+        },
+        {
+          "title": "Happy",
+          "id": 3,
+          "description": "<span class=\"task\">Task</span> may be done anywhere between half and double the written frequency.",
+          "img": "personality_happy.png",
+          "maxSelectable": 1,
+          "cost": 3,
+          "tortureAffinity": 2
+        },
+        {
+          "title": "Demanding",
           "id": 5,
-          "description": "The place where things happen, career opportunities, Nightlife, the weird and the wonderful. It an also be a place of great isolation. Sometimes you might find yourself alone in a crowd of people.",
-          "img": "city.jpg",
-          "imgSource": "https://www.pexels.com/photo/architecture-buildings-business-city-374870/",
+          "description": "Double the frequency of <span class=\"task\">tasks</span>.",
+          "img": "personality_demanding.png",
           "maxSelectable": 1,
-          "cost": 5
-        },
-        {
-          "title": "Suburbs",
-          "id": 6,
-          "description": "The burbs; Backyards, plenty of room to bike around, bit calmer than the city but less disconnected than anywhere more rural. Where the suburb anthem of lawn mowers and whipper snippers plays every Saturday morning.\n<br><br>\nYou can pick up to 3 of this one.",
-          "img": "suburbs.jpg",
-          "imgSource": "https://www.pexels.com/photo/apartment-architecture-buildings-cars-243722/",
-          "maxSelectable": "3",
-          "cost": 3
-        },
-        {
-          "title": "Countryside",
-          "id": 7,
-          "description": "Space for days. Life here tends to be pretty quite and straight forward. You might be out of luck though if you're not interested in farming or running a general store.\n<br><br>\nYou can pick unlimited amounts of this one.",
-          "img": "farm.jpg",
-          "imgSource": "https://www.pexels.com/photo/houses-in-farm-against-cloudy-sky-248880/",
-          "cost": 2
-        },
-        {
-          "title": "Island",
-          "id": 10,
-          "description": "If you appreciate getting away from it all then this might be your dream local. Just don't expect too many modern conveniences",
-          "img": "island.jpg",
-          "imgSource": "https://www.pexels.com/photo/island-covered-with-green-trees-under-the-clear-skies-188029/",
-          "maxSelectable": 1,
-          "cost": 3
+          "cost": 2,
+          "choresAffinity": 2
         }
       ]
     },
     {
-      "title": "Spending Time",
-      "id": 12,
+      "title": "Breasts",
+      "id": 6,
+      "maxSelectable": 1,
+      "minSelectable": 1,
       "contains": [
         {
-          "title": "Job",
-          "id": 13,
-          "description": "Your main and presumably paid occupation.",
-          "maxSelectable": "2",
-          "contains": [
-            {
-              "title": "Mechanic",
-              "id": 8,
-              "description": "The wear of an engine after you've giving it a good going over brings you a supreme joy. Average pay.",
-              "img": "mechanic.jpg",
-              "imgSource": "https://www.pexels.com/photo/architecture-buildings-business-city-374870/",
-              "maxSelectable": 1,
-              "cost": 5
-            },
-            {
-              "title": "Engineer",
-              "id": 0,
-              "description": "You've loved making things ever since you were knee-high to a grasshopper. You still get to do some of that among the more boring parts of your job. But you get paid pretty good money so that always helps.",
-              "img": "engineer.jpg",
-              "imgSource": "https://www.pexels.com/photo/people-laptop-industry-internet-132700/",
-              "maxSelectable": 1,
-              "cost": 5
-            },
-            {
-              "title": "Entertainer",
-              "id": 1,
-              "description": "Maybe you make movies or produce music. But whatever it is you've fought hard to make your passion a viable career. The pay's not great but it's enough and you spend your days doing what you love.",
-              "img": "entertainment.jpg",
-              "imgSource": "https://www.pexels.com/photo/audio-business-computer-connection-265672/",
-              "maxSelectable": 1,
-              "cost": 5
-            }
-          ]
+          "title": "Small",
+          "id": 7,
+          "description": "Very sensitive. You may get out of one <span class=\"task\">task</span> per week.",
+          "img": "breasts_small.png",
+          "maxSelectable": 1,
+          "cost": 4
         },
         {
-          "title": "Hobby",
+          "title": "Breasts",
+          "id": 8,
+          "description": "Not too big, not too small.",
+          "img": "breasts_medium.png",
+          "maxSelectable": 1,
+          "cost": 2,
+          "choresAffinity": 1
+        },
+        {
+          "title": "Large",
+          "id": 9,
+          "description": "She finds it difficult not so smother you during sex.",
+          "img": "breasts_large.png",
+          "maxSelectable": 1,
+          "cost": 4,
+          "extraBitsAffinity": 1
+        },
+        {
+          "title": "Comical",
+          "id": 10,
+          "description": "She has back pain because of these, and must visit the doctor 3 days a week. During these days, you may masturbate.",
+          "img": "breasts_comical.png",
+          "maxSelectable": 1,
+          "cost": 6
+        }
+      ]
+    },
+    {
+      "title": "Penis",
+      "id": 11,
+      "maxSelectable": 1,
+      "minSelectable": 1,
+      "contains": [
+        {
+          "title": "Small",
+          "id": 12,
+          "description": "12cm long, 4cm wide.",
+          "img": "penis_small.png",
+          "maxSelectable": 1,
+          "cost": 6,
+          "extraBitsAffinity": 3
+        },
+        {
+          "title": "Medium",
+          "id": 13,
+          "description": "16cm long, 5cm wide.",
+          "img": "penis_medium.png",
+          "maxSelectable": 1,
+          "cost": 4,
+          "extraBitsAffinity": 2
+        },
+        {
+          "title": "Long",
           "id": 14,
-          "description": "What do you do in your down time?",
-          "maxSelectable": "1",
-          "minSelectable": "1",
-          "contains": [
-            {
-              "title": "Photography",
-              "id": 2,
-              "description": "You enjoy nothing more than the satisfaction of capturing a slice of the world in an image.",
-              "img": "photography.jpg",
-              "imgSource": "https://www.pexels.com/photo/camera-canon-digital-dslr-459735/",
-              "maxSelectable": 1,
-              "cost": -5
-            },
-            {
-              "title": "Painting",
-              "id": 3,
-              "description": "When you paint you enter a semi-meditative state, the whole world seems lighter.",
-              "img": "painting.jpg",
-              "imgSource": "https://www.pexels.com/photo/brush-painting-color-paint-102127/",
-              "maxSelectable": 1,
-              "cost": 0
-            },
-            {
-              "title": "Dance",
-              "id": 9,
-              "description": "You've never been able to keep still and dance allows you to channel that energy.",
-              "img": "dance.jpg",
-              "imgSource": "https://www.pexels.com/photo/dancing-dance-people-hip-hop-12312/",
-              "maxSelectable": 1,
-              "cost": 5
-            }
-          ]
+          "description": "30cm long, 5cm wide.",
+          "img": "penis_long.png",
+          "maxSelectable": 1,
+          "cost": 3,
+          "extraBitsAffinity": 1,
+          "fuckingAffinity": 1
+        },
+        {
+          "title": "Large",
+          "id": 15,
+          "description": "18cm long, 6cm wide.",
+          "img": "penis_large.png",
+          "maxSelectable": 1,
+          "cost": 3,
+          "extraBitsAffinity": 1
+        },
+        {
+          "title": "Equine",
+          "id": 16,
+          "description": "40cm long, 7cm wide.",
+          "img": "penis_equine.png",
+          "maxSelectable": 1,
+          "fuckingAffinity": 2
+        }
+      ]
+    },
+    {
+      "title": "Extra Bits",
+      "id": 17,
+      "contains": [
+        {
+          "title": "Throbbing Erections",
+          "id": 18,
+          "description": "Her cock is always ready to go. Add 20 to all bpm, but max of 120.",
+          "img": "extra-bits_throbbing-erections.png",
+          "maxSelectable": 1,
+          "fuckingAffinity": 2
+        },
+        {
+          "title": "Huge Testicles",
+          "id": 19,
+          "description": "She produces 3x as much cum as the average futa.",
+          "img": "extra-bits_huge-testicles.png",
+          "maxSelectable": 1,
+          "cost": -1,
+          "fuckingAffinity": 1
+        },
+        {
+          "title": "Blue Balls",
+          "id": 20,
+          "description": "If it's been more than 24 hours since she has cum inside of you, her next cumshot will be twice as large.",
+          "img": "extra-bits_blue-balls.png",
+          "maxSelectable": 1,
+          "fuckingAffinity": ""
+        },
+        {
+          "title": "Breeding Instinct",
+          "id": 21,
+          "description": "She wants to get you pregnant (you're pretty sure she can't) so she tries to thrust your butt extra deep for maximum fertility.",
+          "img": "extra-bits_breeding-instinct.png",
+          "maxSelectable": 1,
+          "fuckingAffinity": 1
+        },
+        {
+          "title": "Clingy",
+          "id": 22,
+          "description": "Your leasing period is doubled from 4 weeks to 8 weeks.",
+          "img": "extra-bits_clingy.png",
+          "maxSelectable": 1,
+          "cost": -2
+        },
+        {
+          "title": "Sock Stuffer",
+          "id": 23,
+          "description": "Whenever you're doing <span class=\"task\">tasks</span> for her and your mouth is free, she stuffs one of her dirty socks into your mouth.",
+          "img": "extra-bits_sock-stuffer.png",
+          "maxSelectable": 1,
+          "fuckingAffinity": 2
+        },
+        {
+          "title": "Increased Stamina",
+          "id": 25,
+          "description": "Double the duration of anything she does to you.",
+          "img": "extra-bits_increased-stamina.png",
+          "maxSelectable": 1,
+          "cost": -1
+        },
+        {
+          "title": "Dynamic Configuration",
+          "id": 24,
+          "description": "Your futa will be eligible for weekly tweaks and tune ups. Once a week, you may modify her build. This causes her <span class=\"cost\">+1 Stress</span> each time you do it.",
+          "img": "extra-bits_dynamic-configuration.png",
+          "maxSelectable": 1,
+          "cost": 2
+        }
+      ]
+    },
+    {
+      "title": "Chores",
+      "id": 26,
+      "contains": [
+        {
+          "title": "Cleaning",
+          "id": 27,
+          "description": "You will fully clean her home once a week.",
+          "img": "chores_cleaning.png",
+          "maxSelectable": 1,
+          "cost": -1
+        },
+        {
+          "title": "Cooking",
+          "id": 28,
+          "description": "You will cook dinner for her at least 5 nights per week.",
+          "img": "chores_cooking.png",
+          "maxSelectable": 1,
+          "cost": -2
+        },
+        {
+          "title": "Dishes",
+          "id": 29,
+          "description": "You will wash all of her used dishes every night, by hand.",
+          "img": "chores_dishes.png",
+          "maxSelectable": 1,
+          "cost": -1
+        },
+        {
+          "title": "Laundry",
+          "id": 30,
+          "description": "You will wash all of her clothes once a week at her favourite laundromat.",
+          "img": "chores_laundry.png",
+          "maxSelectable": 1,
+          "cost": -1
+        },
+        {
+          "title": "<span class=\"task\">Cum Rag</span>",
+          "id": 31,
+          "description": "One a week, she will fuck your ass and leave you with a creampie. (60bpm/5min/150ml creampie)",
+          "img": "chores_cum-rag.png",
+          "maxSelectable": 1,
+          "cost": -1
+        }
+      ]
+    },
+    {
+      "title": "Torture",
+      "id": 32,
+      "contains": [
+        {
+          "title": "<span class=\"task\">Edging</span>",
+          "id": 34,
+          "description": "Twice a week, she will edge you as many times as she can in 30 minutes. If you make it over 40, she'll let you cum after.",
+          "img": "torture_edging.png",
+          "maxSelectable": 1,
+          "cost": -1
+        },
+        {
+          "title": "<span class=\"task\">Nipple Clamps</span>",
+          "id": 36,
+          "description": "Once a week she will place clamps on your nipples for an hour.",
+          "img": "torture_nipple-clamps.png",
+          "maxSelectable": 1,
+          "cost": -1
+        },
+        {
+          "title": "Chastity",
+          "id": 37,
+          "description": "She will keep you locked up in chastity for 5 days a week, only letting you out on the weekends.",
+          "img": "torture_chastity.png",
+          "maxSelectable": 1,
+          "cost": -3
+        },
+        {
+          "title": "<span class=\"task\">Nightly Plug</span>",
+          "id": 39,
+          "description": "She will force you to sleep with a large butt plug in one night per week.",
+          "img": "torture_nightly-plug.png",
+          "maxSelectable": 1,
+          "cost": -1
+        },
+        {
+          "title": "<span class=\"task\">Ball Busting</span>",
+          "id": 38,
+          "description": "Twice a week, she will let out some stress on your balls. She will kick, slap, and flick them until you are begging her for mercy.",
+          "img": "torture_ball-busting.png",
+          "maxSelectable": 1,
+          "cost": -1
+        },
+        {
+          "title": "<span class=\"task\">Sadistic Fuck</span>",
+          "id": 40,
+          "description": "Twice a week, she will work over your ass. She wants this to be as painful for you as possible so no lube. (120bpm/15min)",
+          "img": "torture_sadistic-fuck.png",
+          "maxSelectable": 1,
+          "cost": -2
+        },
+        {
+          "title": "<span class=\"task\">Anal Stretching</span>",
+          "id": 41,
+          "description": "Once a week she will attempt to stretch your ass to its limit. She says that she's training you for DAP with her and some of her friends.",
+          "img": "torture_anal-stretching.png",
+          "maxSelectable": 1,
+          "cost": -1
+        },
+        {
+          "title": "<span class=\"task\">Throat Stretching</span",
+          "id": 35,
+          "description": "Twice a week, she will force her cock down your throat until you either complete 100 deepthroats, or gag 200 times.",
+          "img": "torture_throat-stretching.png",
+          "maxSelectable": 1,
+          "cost": -1
+        },
+        {
+          "title": "Blindfold and Gag",
+          "id": 42,
+          "description": "She blindfolds and gags you whenever she plays with your ass.",
+          "img": "torture_blindfold-and-gag.png",
+          "maxSelectable": 1,
+          "cost": -1
+        },
+        {
+          "title": "<span class=\"task\">Distension Enemas</span>",
+          "id": 33,
+          "description": "Once a week, she will clean you out with a 2 litre enema. She will plug you and make you hold it for 20 minutes before you are allowed release.",
+          "img": "torture_distension-enemas.png",
+          "maxSelectable": 1,
+          "cost": -1
+        }
+      ]
+    },
+    {
+      "title": "Fucking",
+      "id": 43,
+      "contains": [
+        {
+          "title": "<span class=\"task\">Sensual</span>",
+          "id": 44,
+          "description": "Twice a week, just before bedtime, she will take you from behind. (60bpm/10min/doggy style/100ml creampie). Sleep with her cum inside you.",
+          "img": "fucking_sensual.png",
+          "maxSelectable": 1,
+          "cost": -1
+        },
+        {
+          "title": "<span class=\"task\">Feminized Fuck</span>",
+          "id": 46,
+          "description": "Once a week, she will dress you up in her clothes and fuck you. (90bpm/8min)",
+          "img": "fucking_feminized-fuck.png",
+          "maxSelectable": 1,
+          "cost": -1
+        },
+        {
+          "title": "<span class=\"task\">Cream-Filled</span>",
+          "id": 48,
+          "description": "Once a week, she will squirt an extra large load into your ass. (120bpm/2min/300ml creampie)",
+          "img": "fucking_cream-filled.png",
+          "maxSelectable": 1,
+          "cost": -1
+        },
+        {
+          "title": "<span class=\"task\">Workout Fuck</span>",
+          "id": 47,
+          "description": "Twice a week, she will make you do most of the work and ride her dick. (90bpm/10min/cowgirl)",
+          "img": "fucking_workout-fuck.png",
+          "maxSelectable": 1,
+          "cost": -1
+        },
+        {
+          "title": "<span class=\"task\">Pussy Fucking</span>",
+          "id": 49,
+          "description": "She will let you fuck her and cum inside once per week.",
+          "img": "fucking_pussy-fucking.png",
+          "maxSelectable": 1,
+          "cost": 3
+        },
+        {
+          "title": "Reach Around",
+          "id": 50,
+          "description": "At most two times a week, she will compliment your assfucking with a handjob to completion.",
+          "img": "fucking_reach-around.png",
+          "maxSelectable": 1,
+          "cost": 2,
+          "fuckingAffinity": 1
+        },
+        {
+          "title": "<span class=\"task\">Milking</span>",
+          "id": 51,
+          "description": "Once a week, she will finger your prostate and jack you off. She will not let you cum",
+          "img": "fucking_milking.png",
+          "maxSelectable": 1,
+          "cost": 1,
+          "fuckingAffinity": 1
+        },
+        {
+          "title": "Ass to Mouth",
+          "id": 45,
+          "description": "At most once a week, she will make you go ass to mouth and suck her clean after she fucks your ass.",
+          "img": "fucking_ass-to-mouth.png",
+          "maxSelectable": 1,
+          "cost": -1,
+          "fuckingAffinity": 1
         }
       ]
     }

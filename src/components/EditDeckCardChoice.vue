@@ -40,6 +40,26 @@
         min="2"
       ></input>
     </template>
+    <span>Chores Affinity:</span>
+    <input
+      v-model.number="choiceData.choresAffinity"
+      type="number"
+    ></input>
+    <span>Torture Affinity:</span>
+    <input
+      v-model.number="choiceData.tortureAffinity"
+      type="number"
+    ></input>
+    <span>Extra Bits Affinity:</span>
+    <input
+      v-model.number="choiceData.extraBitsAffinity"
+      type="number"
+    ></input>
+    <span>Fucking Affinity:</span>
+    <input
+      v-model.number="choiceData.fuckingAffinity"
+      type="number"
+    ></input>
     <textarea 
       class="description" 
       v-model="choiceData.description"
