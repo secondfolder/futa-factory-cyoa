@@ -21,7 +21,8 @@ new Vue({
       deckData: this.loadDraft() || this.getDeckFromSource(),
       deckDataModified: !!this.loadDraft(),
       selectedIds: [],
-      budget: Math.floor(Math.random() * (9 + 1)) + 0
+      budget: Math.floor(Math.random() * (9 + 1)) + 0,
+      creativeMode: false
     }
   },
   methods: {

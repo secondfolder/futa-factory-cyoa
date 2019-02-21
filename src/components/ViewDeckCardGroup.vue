@@ -27,10 +27,6 @@
         v-html="selectionRequirementsMsg"
       ></p>
       <p class="description" v-if="groupData.description" v-html="groupData.description"></p>
-      <label>
-        Creative Fantasy Mode (no budget): 
-        <input type="checkbox" v-model="$root.creativeMode">
-      </label>
       <div v-if="groupData.img" class="image">
         <img :src="this.getAssetUrl(groupData.img)">
       </div>

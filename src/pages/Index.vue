@@ -18,17 +18,21 @@
     </main>
     <footer :class="{overBudget: remaining < 0}">
       <div>
-        <template v-if="$root.creativeMode">
+        <div v-if="!$root.creativeMode">
           <span class="remaining">
             Remaining Points: {{ remaining }}
           </span>
           <span class="budget">
             Budget: {{this.$root.budget}} <em>(randomly picked)</em>
           </span>
-        </template>
-        <template v-else>
-          Creative Fantasy Mode ({{spent}} stress)
-        </template>
+        </div>
+        <div v-else>
+          Stress: {{spent}}
+        </div>
+        <label>
+          Creative Fantasy Mode (no budget): 
+          <input type="checkbox" v-model="$root.creativeMode">
+        </label>
       </div>
       <div v-if="$root.deckDataModified" >
         <button 
