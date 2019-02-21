@@ -34,6 +34,21 @@
           <input type="checkbox" v-model="$root.creativeMode">
         </label>
       </div>
+      <div>
+        {{ neededFuckingAffinity }}
+        <div v-if="neededChoresAffinity > 0">
+          {{neededChoresAffinity}}  
+        </div>
+        <div v-if="neededTortureAffinity > 0">
+          {{neededTortureAffinity}}  
+        </div>
+        <div v-if="neededExtraBitsAffinity > 0">
+          {{neededExtraBitsAffinity}}  
+        </div>
+        <div v-if="neededFuckingAffinity > 0">
+          {{neededFuckingAffinity}}  
+        </div>
+      </div>
       <div v-if="$root.deckDataModified" >
         <button 
           @click="$root.discardDraft"
@@ -64,7 +79,6 @@
           v-text="changeRequiredMsg ? changeRequiredMsg : 'Confirm Choices'"
         />
       </div>
-      {{ maxPossibleChoresAffinity }}
     </footer>
   </div>  
 </template>
@@ -113,25 +127,7 @@ export default {
       return msgs.length > 0 ? msgs.join(' & ') : null
     },
     maxPossibleChoresAffinity () {
-      return this.numberOfChoicesInGroup('Chores')
-      const chorseChoices = this
-        .subtreeChoices(choresGroup)
-        .reduce((runningTotal, choice) => {console.log(runningTotal, choice); return runningTotal + (choice.choresAffinity || 0)}, 0)
-      console.log('chores', chorseChoices)
-      /*
-    <p class="stat" v-if="choiceData.choresAffinity">
-      +{{choiceData.choresAffinity}} Affinity for Chores
-    </p>
-    <p class="stat" v-if="choiceData.tortureAffinity">
-      +{{choiceData.tortureAffinity}} Affinity for Torture
-    </p>
-    <p class="stat" v-if="choiceData.extraBitsAffinity">
-      +{{choiceData.extraBitsAffinity}} Affinity for Extra Bits
-    </p>
-    <p class="stat" v-if="choiceData.fuckingAffinity">
-      +{{choiceData.fuckingAffinity}} Affinity for Fucking
-    </p>
-    */
+      return this.groupCount('Chores', this.subtreeChoices)
     },
     maxPossibleTortureAffinity () {
       return this.groupCount('Torture', this.subtreeChoices)
@@ -142,29 +138,41 @@ export default {
     maxPossibleFuckingAffinity () {
       return this.groupCount('Fucking', this.subtreeChoices)
     },
-    neededChoresAffinity () {
+    requiredChoresAffinity () {
       return this.groupCount('Chores', this.subtreeSelected)
     },
-    neededChoresAffinity () {
+    requiredTortureAffinity () {
       return this.groupCount('Torture', this.subtreeSelected)
     },
-    neededChoresAffinity () {
+    requiredExtraBitsAffinity () {
       return this.groupCount('Extra Bits', this.subtreeSelected)
     },
-    neededChoresAffinity () {
+    requiredFuckingAffinity () {
       return this.groupCount('Fucking', this.subtreeSelected)
     },
-    choresAffinity () {
-      return this.affinityCount('choresAffinity')
+    neededChoresAffinity () {
+      return this.requiredChoresAffinity - this.choresAffinity
+    },
+    neededTortureAffinity () {
+      return this.requiredTortureAffinity - this.tortureAffinity
+    },
+    neededExtraBitsAffinity () {
+      return this.requiredExtraBitsAffinity - this.extraBitsAffinity
+    },
+    neededFuckingAffinity () {
+      return this.requiredFuckingAffinity - this.fuckingAffinity
     },
     choresAffinity () {
       return this.affinityCount('choresAffinity')
     },
-    choresAffinity () {
-      return this.affinityCount('choresAffinity')
+    tortureAffinity () {
+      return this.affinityCount('tortureAffinity')
     },
-    choresAffinity () {
-      return this.affinityCount('choresAffinity')
+    extraBitsAffinity () {
+      return this.affinityCount('extraBitsAffinity')
+    },
+    fuckingAffinity () {
+      return this.affinityCount('fuckingAffinity')
     }
     
   },
