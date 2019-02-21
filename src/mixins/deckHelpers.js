@@ -53,10 +53,16 @@ export default {
       var choiceIdSize = this.metaDeckData.hashBytesPerChoice
 
       // create binary buffer
-      var hash = new ArrayBuffer(1 + (this.selected.length * choiceIdSize))
+      var hash = new ArrayBuffer(3 + (this.selected.length * choiceIdSize))
 
       // first byte of buffer = number of bytes to make choice ID
-      new Uint8Array(hash)[0] = choiceIdSize
+      new Uint8Array(hash)[0] = 2 + choiceIdSize
+
+      // first byte of buffer = number of bytes to make choice ID
+      new Uint8Array(hash)[1] = this.$root.budget
+
+      // first byte of buffer = number of bytes to make choice ID
+      new Uint8Array(hash)[2] = this.$root.creativeMode
 
       // create array using the rest of the space in the buffer
       // element size depends on the number of bytes needed to represent choice ID
@@ -84,13 +90,15 @@ export default {
       // then create a new array from remaining bytes of that type size
       var typedArray = Uint8Array.from(atob(hash), c => c.charCodeAt(0))
       var choiceIdSize = typedArray[0]
+      this.$root.budget = typedArray[1]
+      this.$root.creativeMode = typedArray[2]
       var selectedChoiceIds
       if (choiceIdSize === 1) {
-        selectedChoiceIds = new Uint8Array(typedArray.buffer, 1)
+        selectedChoiceIds = new Uint8Array(typedArray.buffer, 3)
       } else if (choiceIdSize === 2) {
-        selectedChoiceIds = new Uint16Array(typedArray.buffer, 1)
+        selectedChoiceIds = new Uint16Array(typedArray.buffer, 3)
       } else if (choiceIdSize === 3) {
-        selectedChoiceIds = new Uint32Array(typedArray.buffer, 1)
+        selectedChoiceIds = new Uint32Array(typedArray.buffer, 3)
       }
       this.$root.selectedIds = Array.from(selectedChoiceIds)
     },
