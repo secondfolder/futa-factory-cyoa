@@ -126,19 +126,19 @@ export default {
       }
       return msgs.length > 0 ? msgs.join(' & ') : null
     },
-    maxPossibleChoresAffinity () {
+    maxPossibleChores () {
       return this.groupCount('Chores', this.subtreeChoices)
     },
-    maxPossibleTortureAffinity () {
+    maxPossibleTorture () {
       return this.groupCount('Torture', this.subtreeChoices)
     },
-    maxPossibleExtraBitsAffinity () {
+    maxPossibleExtraBits () {
       return this.groupCount('Extra Bits', this.subtreeChoices)
     },
-    maxPossibleFuckingAffinity () {
+    maxPossibleFucking () {
       return this.groupCount('Fucking', this.subtreeChoices)
     },
-    requiredChoresAffinity () {
+    requiredChores () {
       return this.groupCount('Chores', this.subtreeSelected)
     },
     requiredTortureAffinity () {
@@ -187,6 +187,14 @@ export default {
         params: {hash: this.getStatusHash()}
       })
     },
+    maxPossibleAffinity (title) {
+      const choresGroup = this.choiceGroups.find(choice => choice.title === title)
+      return this.subtreeChoices(choresGroup).length
+    },
+    requiredAffinity (title) {
+      const choresGroup = this.choiceGroups.find(choice => choice.title === title)
+      return this.subtreeSelected(choresGroup).length
+    }
     groupCount (title, choices) {
       const choresGroup = this.choiceGroups.find(choice => choice.title === title)
       return choices(choresGroup).length
