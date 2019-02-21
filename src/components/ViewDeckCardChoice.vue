@@ -3,16 +3,11 @@
     :class="[{selected: isSelected(choiceData) && !hideNotSelected}, 'choice', {selectable}]" 
     @click="clicked"
   >
+    <a class="imgSource" :href="choiceData.imgSource" @click.stop target="_blank">Image Source</a>
     <div>
       <img v-if="choiceData.img" :src="imageSRC">
     </div>
-    <div class="horizontal">
-      <a class="imgSource" :href="choiceData.imgSource" @click.stop target="_blank">Image Source</a>
-      <p :class="['price', {cost: choiceData.cost > 0, gain: choiceData.cost < 0, neutral: !choiceData.cost || choiceData.cost === 0}]">
-        {{ isNaN(choiceData.cost) || choiceData.cost === 0 ? 'No Cost' : Math.abs(choiceData.cost)+' Points' }}
-      </p>
-    </div>
-    <h1 class="title">{{ choiceData.title }}</h1>
+    <h1 class="title" v-html="choiceData.title"></h1>
     <div 
       class="qty" 
       v-if="isSelected(choiceData) && (choiceData.maxSelectable > 1 || choiceData.maxSelectable === undefined)" 
@@ -37,6 +32,9 @@
       </span>
     </div>
     <p class="description" v-html="choiceData.description"></p>
+    <p :class="['price', {cost: choiceData.cost > 0, gain: choiceData.cost < 0, neutral: !choiceData.cost || choiceData.cost === 0}]">
+      {{ isNaN(choiceData.cost) || choiceData.cost === 0 ? 'No Cost' : Math.abs(choiceData.cost)+' Stress' }}
+    </p>
   </div>
 </template>
 
@@ -139,5 +137,19 @@
   }
   
   /* Custom CSS */
-  /* ... */
+  .price::before {
+    margin-right: -0.3em;
+  }
+  .price.gain::before {
+    content: '-';
+  }
+  .price.gain {
+    color: #217f21;
+  }
+  .price.cost::before {
+    content: '+';
+  }
+  .price.cost {
+    color: #842323;
+  }
 </style>
