@@ -169,7 +169,7 @@
     margin: 0;
     font-weight: bold;
   }
-  .task {
+  /deep/ .task {
     color: #1f1fec;
     font-weight: bold;
   }

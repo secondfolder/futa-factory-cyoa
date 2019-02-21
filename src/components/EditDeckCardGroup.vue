@@ -40,6 +40,7 @@
       <span class="imageMsg" v-else-if="deckData.img">
         Image could not be found. Make sure an image with the same file name exists in the assets folder.
       </span>
+
       <input 
         v-if="imageExists || deckData.imageSource"
         class="imageSource"
