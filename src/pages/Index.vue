@@ -37,7 +37,7 @@
       <div>
         <div v-if="unfulfilledAffinity('Chores') > 0">
           Unfulfilled Chores Affinity: {{unfulfilledAffinity('Chores')}}  
-          <span v-if="!affinityPossibleToFulfill('Torture')">
+          <span v-if="!affinityPossibleToFulfill('Chores')">
             (not possible to fulfill because affinity is too high; +5 Stress)
           </span>
         </div>
@@ -49,13 +49,13 @@
         </div>
         <div v-if="unfulfilledAffinity('Extra Bits') > 0">
           Unfulfilled Extra Bits Affinity: {{unfulfilledAffinity('Extra Bits')}}  
-          <span v-if="!affinityPossibleToFulfill('Torture')">
+          <span v-if="!affinityPossibleToFulfill('Extra Bits')">
             (not possible to fulfill because affinity is too high; +5 Stress)
           </span>
         </div>
         <div v-if="unfulfilledAffinity('Fucking') > 0">
           Unfulfilled Fucking Affinity: {{unfulfilledAffinity('Fucking')}}  
-          <span v-if="!affinityPossibleToFulfill('Torture')">
+          <span v-if="!affinityPossibleToFulfill('Fucking')">
             (not possible to fulfill because affinity is too high; +5 Stress)
           </span>
         </div>
@@ -115,6 +115,11 @@ export default {
   },
   computed: {
     spent () {
+      const affinityUnfulfillablePenalty = 
+        (!affinityPossibleToFulfill('Chores') ? 5 : 0) +
+        (!affinityPossibleToFulfill('Torture') ? 5 : 0) +
+        (!affinityPossibleToFulfill('Extra Bit') ? 5 : 0) +
+        (!affinityPossibleToFulfill('Fucking') ? 5 : 0) +
       return this.selected
         .map(choice => choice.cost || 0)
         .reduce((a, b) => a + b, 0)
@@ -157,12 +162,11 @@ export default {
         'Fucking': 'fuckingAffinity'
       }
       const choresGroup = this.choiceGroups.find(choice => choice.title === title)
+      console.log(title, propMap[title])
       return this
         .subtreeChoices(choresGroup)
         .reduce(
-          //(runningTotal, choice) => runningTotal + (choice[propMap[title]] ? choice[propMap[title]] + 1 : 1),
-          (runningTotal, choice) => 
-        {console.log(runningTorunningTotal + (choice[propMap[title]] ? choice[propMap[title]] + 1 : 1),
+          (runningTotal, choice) => runningTotal + (choice[propMap[title]] ? 1 - choice[propMap[title]] : 1),
           0
         )
     },
