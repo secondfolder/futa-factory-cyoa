@@ -32,8 +32,20 @@
       </span>
     </div>
     <p class="description" v-html="choiceData.description"></p>
-    <p :class="['price', {cost: choiceData.cost > 0, gain: choiceData.cost < 0, neutral: !choiceData.cost || choiceData.cost === 0}]">
-      {{ isNaN(choiceData.cost) || choiceData.cost === 0 ? 'No Cost' : Math.abs(choiceData.cost)+' Stress' }}
+    <p :class="['stat', 'price', {cost: choiceData.cost > 0, gain: choiceData.cost < 0, neutral: !choiceData.cost || choiceData.cost === 0}]">
+      {{ isNaN(choiceData.cost) || choiceData.cost === 0 ? 'No Stress' : Math.abs(choiceData.cost)+' Stress' }}
+    </p>
+    <p class="stat" v-if="choiceData.choresAffinity">
+      +{{choiceData.choresAffinity}} Affinity for Chores
+    </p>
+    <p class="stat" v-if="choiceData.tortureAffinity">
+      +{{choiceData.tortureAffinity}} Affinity for Torture
+    </p>
+    <p class="stat" v-if="choiceData.extraBitsAffinity">
+      +{{choiceData.extraBitsAffinity}} Affinity for Extra Bits
+    </p>
+    <p class="stat" v-if="choiceData.fuckingAffinity">
+      +{{choiceData.fuckingAffinity}} Affinity for Fucking
     </p>
   </div>
 </template>
@@ -138,7 +150,7 @@
   
   /* Custom CSS */
   .price::before {
-    margin-right: -0.3em;
+    margin-right: -0.2em;
   }
   .price.gain::before {
     content: '-';
@@ -151,5 +163,14 @@
   }
   .price.cost {
     color: #842323;
+  }
+  .stat {
+    display: block;
+    margin: 0;
+    font-weight: bold;
+  }
+  .task {
+    color: #1f1fec;
+    font-weight: bold;
   }
 </style>
