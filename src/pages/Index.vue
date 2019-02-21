@@ -110,6 +110,9 @@ export default {
         msgs.push('Over Budget')
       }
       return msgs.length > 0 ? msgs.join(' & ') : null
+    },
+    maxPossibleChoresAffinity () {
+      
     }
   },
   components: {ViewDeckCardGroup, ViewDeckFlat},
@@ -133,4 +136,7 @@ export default {
   
   /* Custom CSS */
   /* ... */
+  .remaining {
+    margin-right: 0.7em;
+  }
 </style>
