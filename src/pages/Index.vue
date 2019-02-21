@@ -150,8 +150,21 @@ export default {
       })
     },
     maxPossibleAffinity (title) {
+      const propMap = {
+        'Chores': 'choresAffinity',
+        'Torture': 'tortureAffinity',
+        'Extra Bits': 'extraBitsAffinity',
+        'Fucking': 'fuckingAffinity'
+      }
       const choresGroup = this.choiceGroups.find(choice => choice.title === title)
-      return this.subtreeChoices(choresGroup).length
+      return this
+        .subtreeChoices(choresGroup)
+        .reduce(
+          //(runningTotal, choice) => runningTotal + (choice[propMap[title]] ? choice[propMap[title]] + 1 : 1),
+          (runningTotal, choice) => 
+        {console.log(runningTorunningTotal + (choice[propMap[title]] ? choice[propMap[title]] + 1 : 1),
+          0
+        )
     },
     forfilledAffinity (title) {
       const choresGroup = this.choiceGroups.find(choice => choice.title === title)
@@ -170,12 +183,13 @@ export default {
       return this
         .selected
         .reduce(
-          (runningTotal, choice) => runningTotal + (choice[propMap[title]] || 0)
-          , 0
+          (runningTotal, choice) => runningTotal + (choice[propMap[title]] || 0),
+          0
         )
     },
     affinityPossibleToFulfill (title) {
-      return this.affinity(title) > this.maxPossibleAffinity(title)
+      console.log( this.affinity(title), this.maxPossibleAffinity(title))
+      return this.affinity(title) <= this.maxPossibleAffinity(title)
     }
   }
 }
