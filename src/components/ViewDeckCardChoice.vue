@@ -3,7 +3,7 @@
     :class="[{selected: isSelected(choiceData) && !hideNotSelected}, 'choice', {selectable}]" 
     @click="clicked"
   >
-    <a class="imgSource" :href="choiceData.imgSource" @click.stop target="_blank">Image Source</a>
+    <a v-if="choiceData.imgSource" class="imgSource" :href="choiceData.imgSource" @click.stop target="_blank">Image Source</a>
     <div>
       <img v-if="choiceData.img" :src="imageSRC">
     </div>
