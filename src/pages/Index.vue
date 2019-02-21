@@ -41,7 +41,6 @@
             (not possible to fulfill because affinity is too high; +5 Stress)
           </span>
         </div>
-        {{this.affinity('Fucking')}}
         <div v-if="unfulfilledAffinity('Torture') > 0">
           Unfulfilled Torture Affinity: {{unfulfilledAffinity('Torture')}} 
           <span v-if="!affinityPossibleToFulfill('Torture')">
@@ -121,12 +120,6 @@ export default {
         (!this.affinityPossibleToFulfill('Torture') ? 5 : 0) +
         (!this.affinityPossibleToFulfill('Extra Bits') ? 5 : 0) +
         (!this.affinityPossibleToFulfill('Fucking') ? 5 : 0)
-      console.log(affinityUnfulfillablePenalty)
-      console.log(!this.affinityPossibleToFulfill('Chores') ,
-                  !this.affinityPossibleToFulfill('Torture') ,
-                  !this.affinityPossibleToFulfill('Extra Bits') ,
-                  !this.affinityPossibleToFulfill('Fucking')
-      )
       return affinityUnfulfillablePenalty + this.selected
         .map(choice => choice.cost || 0)
         .reduce((a, b) => a + b, 0)
@@ -198,7 +191,6 @@ export default {
         )
     },
     affinityPossibleToFulfill (title) {
-      console.log('posible', title, this.affinity(title), this.maxPossibleAffinity(title))
       return this.affinity(title) <= this.maxPossibleAffinity(title)
     }
   }
