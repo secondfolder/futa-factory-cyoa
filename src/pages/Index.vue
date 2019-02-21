@@ -35,18 +35,17 @@
         </label>
       </div>
       <div>
-        {{ neededFuckingAffinity }}
-        <div v-if="neededChoresAffinity > 0">
-          {{neededChoresAffinity}}  
+        <div v-if="unfulfilledAffinity('Chores') > 0">
+          Unfulfilled Fucking Affinity: {{unfulfilledAffinity('Chores')}}  
         </div>
-        <div v-if="neededTortureAffinity > 0">
-          {{neededTortureAffinity}}  
+        <div v-if="unfulfilledAffinity('Fucking') > 0">
+          Unfulfilled Fucking Affinity: {{unfulfilledAffinity('Fucking')}}  
         </div>
-        <div v-if="neededExtraBitsAffinity > 0">
-          {{neededExtraBitsAffinity}}  
+        <div v-if="unfulfilledAffinity('Fucking') > 0">
+          Unfulfilled Fucking Affinity: {{unfulfilledAffinity('Fucking')}}  
         </div>
-        <div v-if="neededFuckingAffinity > 0">
-          {{neededFuckingAffinity}}  
+        <div v-if="unfulfilledAffinity('Fucking') > 0">
+          Unfulfilled Fucking Affinity: {{unfulfilledAffinity('Fucking')}}  
         </div>
       </div>
       <div v-if="$root.deckDataModified" >
@@ -125,56 +124,7 @@ export default {
         msgs.push('Over Budget')
       }
       return msgs.length > 0 ? msgs.join(' & ') : null
-    },
-    maxPossibleChores () {
-      return this.groupCount('Chores', this.subtreeChoices)
-    },
-    maxPossibleTorture () {
-      return this.groupCount('Torture', this.subtreeChoices)
-    },
-    maxPossibleExtraBits () {
-      return this.groupCount('Extra Bits', this.subtreeChoices)
-    },
-    maxPossibleFucking () {
-      return this.groupCount('Fucking', this.subtreeChoices)
-    },
-    requiredChores () {
-      return this.groupCount('Chores', this.subtreeSelected)
-    },
-    requiredTortureAffinity () {
-      return this.groupCount('Torture', this.subtreeSelected)
-    },
-    requiredExtraBitsAffinity () {
-      return this.groupCount('Extra Bits', this.subtreeSelected)
-    },
-    requiredFuckingAffinity () {
-      return this.groupCount('Fucking', this.subtreeSelected)
-    },
-    neededChoresAffinity () {
-      return this.requiredChoresAffinity - this.choresAffinity
-    },
-    neededTortureAffinity () {
-      return this.requiredTortureAffinity - this.tortureAffinity
-    },
-    neededExtraBitsAffinity () {
-      return this.requiredExtraBitsAffinity - this.extraBitsAffinity
-    },
-    neededFuckingAffinity () {
-      return this.requiredFuckingAffinity - this.fuckingAffinity
-    },
-    choresAffinity () {
-      return this.affinityCount('choresAffinity')
-    },
-    tortureAffinity () {
-      return this.affinityCount('tortureAffinity')
-    },
-    extraBitsAffinity () {
-      return this.affinityCount('extraBitsAffinity')
-    },
-    fuckingAffinity () {
-      return this.affinityCount('fuckingAffinity')
-    }
-    
+    }    
   },
   components: {ViewDeckCardGroup, ViewDeckFlat},
   methods: {
@@ -191,19 +141,24 @@ export default {
       const choresGroup = this.choiceGroups.find(choice => choice.title === title)
       return this.subtreeChoices(choresGroup).length
     },
-    requiredAffinity (title) {
+    forfilledAffinity (title) {
       const choresGroup = this.choiceGroups.find(choice => choice.title === title)
       return this.subtreeSelected(choresGroup).length
-    }
-    groupCount (title, choices) {
-      const choresGroup = this.choiceGroups.find(choice => choice.title === title)
-      return choices(choresGroup).length
     },
-    affinityCount (affinityProp) {
+    unfulfilledAffinity (title) {
+      return this.affinity(title) - this.forfilledAffinity(title)
+    },
+    affinity (title) {
+      const propMap = {
+        'Chores': 'choresAffinity',
+        'Torture': 'tortureAffinity',
+        'Extra Bits': 'extraBitsAffinity',
+        'Fucking': 'fuckingAffinity'
+      }
       return this
         .selected
         .reduce(
-          (runningTotal, choice) => runningTotal + (choice[affinityProp] || 0)
+          (runningTotal, choice) => runningTotal + (choice[propMap[title]] || 0)
           , 0
         )
     }
