@@ -22,7 +22,7 @@
           Remaining Points: {{ remaining }}
         </span>
         <span class="budget">
-          Budget: {{this.deckData.budget}}
+          Budget: {{this.$root.budget}} <em>(randomly picked)</em>
         </span>
       </div>
       <div v-if="$root.deckDataModified" >
@@ -85,7 +85,7 @@ export default {
         .reduce((a, b) => a + b, 0)
     },
     remaining () {
-      return this.deckData.budget - this.spent
+      return this.$root.budget - this.spent
     },
     groupsNeedingMoreSelections () {
       return this.choiceGroups
