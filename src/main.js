@@ -22,7 +22,9 @@ new Vue({
     return {
       deckData: this.loadDraft() || this.getDeckFromSource(),
       deckDataModified: !!this.loadDraft(),
-      selectedIds: []
+      selectedIds: [],
+      budget: Math.floor(Math.random() * (9 + 1)) + 0,
+      creativeMode: false
     }
   },
   methods: {
