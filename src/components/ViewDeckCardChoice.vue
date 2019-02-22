@@ -176,4 +176,7 @@
     color: #1f1fec;
     font-weight: bold;
   }
+  .selected {
+    outline: 0.3em solid #efdd0d;
+  }
 </style>

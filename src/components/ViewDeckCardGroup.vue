@@ -23,6 +23,7 @@
         </span>
       </p>
       <p 
+        v-if="selectionRequirementsMsg"
         :class="['selectionRequirements', {selectionRequirementsMet}]" 
         v-html="selectionRequirementsMsg"
       ></p>
@@ -246,5 +247,14 @@
   }
   
   /* Custom CSS */
-  /* ... */
+  li.choice {
+    flex: 0 1 13em;
+  }
+  li {
+    margin: 10px;
+  }
+  /deep/ .price.cost {
+    color: #842323;
+    font-weight: bold;
+  }
 </style>
