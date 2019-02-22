@@ -149,6 +149,9 @@
   }
   
   /* Custom CSS */
+  .choice {
+    background-color: unset;
+  }
   .price::before {
     margin-right: -0.2em;
   }
