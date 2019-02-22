@@ -4,6 +4,7 @@ dependencies:
   sass-loader: 7.1.0
   vue: 2.6.6
   vue-async-computed: 3.6.1
+  vue-clipboard2: 0.3.0
   vue-router: 3.0.2
   vuedraggable: 2.17.0
   vuex: 3.1.0
@@ -2167,6 +2168,14 @@ packages:
     dev: true
     resolution:
       integrity: sha1-/xnt6Kml5XkyQUewwR8PvLq+1jk=
+  /clipboard/2.0.4:
+    dependencies:
+      good-listener: 1.2.2
+      select: 1.1.2
+      tiny-emitter: 2.1.0
+    dev: false
+    resolution:
+      integrity: sha512-Vw26VSLRpJfBofiVaFb/I8PVfdI1OxKcYShe6fm0sP/DtmiWQNCjhM/okTvdCo0G+lMMm1rMYbk4IK4x1X+kgQ==
   /cliui/3.2.0:
     dependencies:
       string-width: 1.0.2
@@ -2876,6 +2885,10 @@ packages:
       node: '>=0.4.0'
     resolution:
       integrity: sha1-3zrhmayt+31ECqrgsp4icrJOxhk=
+  /delegate/3.2.0:
+    dev: false
+    resolution:
+      integrity: sha512-IofjkYBZaZivn0V8nnsMJGBr4jVLxHDheKSW88PyxS5QC4Vo9ZbZVvhzlSxY87fVq3STR6r+4cGepyHkcWOQSw==
   /delegates/1.0.0:
     dev: false
     resolution:
@@ -4256,6 +4269,12 @@ packages:
       node: '>= 0.10'
     resolution:
       integrity: sha512-g7QtgWF4uYSL5/dn71WxubOrS7JVGCnFPEnoeChJmBnyR9Mw8nGoEwOgJL/RC2Te0WhbsEUCejfH8SZNJ+adYQ==
+  /good-listener/1.2.2:
+    dependencies:
+      delegate: 3.2.0
+    dev: false
+    resolution:
+      integrity: sha1-1TswzfkxPf+33JoNR3CWqm0UXFA=
   /got/5.6.0:
     dependencies:
       create-error-class: 3.0.2
@@ -8347,6 +8366,10 @@ packages:
     dev: true
     resolution:
       integrity: sha1-Yl2GWPhlr0Psliv8N2o3NZpJlMo=
+  /select/1.1.2:
+    dev: false
+    resolution:
+      integrity: sha1-DnNQrN7ICxEIUoeG7B1EGNEbOW0=
   /selenium-server/3.141.59:
     dev: true
     hasBin: true
@@ -9089,6 +9112,10 @@ packages:
       node: '>=0.6.0'
     resolution:
       integrity: sha512-YvC1SV1XdOUaL6gx5CoGroT3Gu49pK9+TZ38ErPldOWW4j49GI1HKs9DV+KGq/w6y+LZ72W1c8cKz2vzY+qpzg==
+  /tiny-emitter/2.1.0:
+    dev: false
+    resolution:
+      integrity: sha512-NB6Dk1A9xgQPMoGqC5CVXn123gWyte215ONT5Pp5a0yt4nlEoO1ZWeCwpncaekPHXO60i47ihFnZPiRPjRMq4Q==
   /tmp/0.0.33:
     dependencies:
       os-tmpdir: 1.0.2
@@ -9496,6 +9523,12 @@ packages:
       vue: ~2
     resolution:
       integrity: sha512-8FFDTqfdvKrzK5Fr7nNHZgP6sQ2hTUELTrLn25i8VW/g06MztD+FOe1gs0RYVpRkPlcrykf2hbJxNYra1c4OGg==
+  /vue-clipboard2/0.3.0:
+    dependencies:
+      clipboard: 2.0.4
+    dev: false
+    resolution:
+      integrity: sha512-6/Y9NJErWb4LNBLMgsJSdKb7KpF6/jqXagvKlYut6VQzQsNj6515FpwH0r5hhmeJMqaPzf1kxAw8L8Qvw/QBJQ==
   /vue-eslint-parser/2.0.3:
     dependencies:
       debug: 3.2.6
@@ -10100,6 +10133,7 @@ specifiers:
   url-loader: ^1.1.2
   vue: ^2.6.4
   vue-async-computed: ^3.6.1
+  vue-clipboard2: ^0.3.0
   vue-jest: ^2.6.0
   vue-loader: ^15.6.2
   vue-router: ^3.0.2
