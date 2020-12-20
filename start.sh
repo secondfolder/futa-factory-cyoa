@@ -9,6 +9,7 @@ if [ "$NODE_ENV" = "production" ]; then
     npm run build; 
   fi;
   if [ "$inGlitch" = "true" ]; then
+    cd dist
     ${APP_TYPES_DIR}/static/start.sh
   fi;
 else
