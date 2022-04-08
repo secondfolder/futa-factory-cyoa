@@ -1,18 +1,18 @@
-<template lang="html">
+<template>
   <div :class="['choiceGroupFlatView', {top: level === 1}]">
     <header>
-      <h1 
+      <h1
         v-if="groupData.title"
-        :class="['groupTitle']" 
+        :class="['groupTitle']"
         v-html="groupData.title"
       />
-      <span 
+      <span
         v-if="groupData.maxSelectable"
         class="maxSelectable"
       >
         Max: {{groupData.maxSelectable}}
       </span>
-      <span 
+      <span
         v-if="groupData.minSelectable"
         class="minSelectable"
       >
@@ -37,14 +37,14 @@
             <span v-if="child.maxSelectable > 0" class="maxSelectable">Max: {{child.maxSelectable}}</span><!--
             --><span class="qty">QTY: {{ getQty(child) }}</span>
             <span class="qtyButtons" v-if="selectable" @click.stop>
-              <span 
-                @click="setQty(child, getQty(child) + 1)" 
+              <span
+                @click="setQty(child, getQty(child) + 1)"
                 :class="{disabled: getQty(child) >= child.maxSelectable}"
               >
                 ➕
               </span>
-              <span 
-                @click="setQty(child, getQty(child) - 1)" 
+              <span
+                @click="setQty(child, getQty(child) - 1)"
                 :class="{disabled: getQty(child) <= 1}"
               >
                 ➖
@@ -59,7 +59,7 @@
 
 <script lang="js">
   import deckMixin from '@/mixins/deck'
-  
+
   export default {
     name: 'view-deck-flat',
     mixins: [deckMixin],
@@ -100,7 +100,7 @@
   }
 </script>
 
-<style scoped lang="scss">
+<style scoped>
   .choiceGroupFlatView.top {
     background-color: #dbecf9;
     padding: 2em;
@@ -109,7 +109,7 @@
     text-align: initial;
     padding-left: 0;
     margin: 0;
-  }  
+  }
   li {
     list-style-type: none;
     margin: 10px 30px;
@@ -164,7 +164,7 @@
     font-size: 3em;
     line-height: 0.6em;
   }
-  
+
   /* Custom CSS */
   /* ... */
 </style>

@@ -1,22 +1,22 @@
-<template lang="html">
+<template>
   <div :class="['choiceGroupFlatView', {top: level === 1}]">
     <div class="title">
-      <h1 
+      <h1
         v-if="groupData.title"
-        :class="['groupTitle']" 
+        :class="['groupTitle']"
       >
         {{ groupData.title }}
       </h1>
       <div v-if="level !== 1" class="delete" @click="$emit('deleted')">Delete</div>
     </div>
-    <draggable 
-      :element="'ul'" 
-      :list="groupData.contains" 
-      class="dragArea" 
+    <draggable
+      :element="'ul'"
+      :list="groupData.contains"
+      class="dragArea"
       :options="{group: {name:'g1'}, draggable: '.node', animation: 0}"
     >
-      <li 
-        v-for="child in groupData.contains" 
+      <li
+        v-for="child in groupData.contains"
         :key="child.id"
         :class="['node', child.contains ? 'group' : 'choice']"
       >
@@ -25,7 +25,7 @@
           :group-data="child"
           @deleted="deleteItem(child)"
         />
-        <div 
+        <div
           v-else
           :class="['title']"
         >
@@ -97,7 +97,7 @@
 }
 </script>
 
-<style scoped lang="scss">
+<style scoped>
   @import '../mixins/ui.scss';
   .choiceGroupFlatView.top {
     // background-color: #dbecf9;
@@ -109,14 +109,14 @@
     text-align: initial;
     padding-left: 0;
     margin: 0;
-  } 
+  }
   .node {
     list-style-type: none;
     max-width: 100%;
     background-color: #0080e414;
     padding: 1em;
     border: 1px solid rgba(11, 129, 214, 0.6);
-  } 
+  }
   .node:not(:first-child) {
     margin-top: -1px;
   }
@@ -128,7 +128,7 @@
     opacity: 0;
     outline:  solid 10px;
   }
-  
+
   .sortable-ghost {
     color: #fff;
     background-color: #0081e4;
@@ -184,7 +184,7 @@
     margin: 0 1em;
     padding: 1em 0;
   }
-  
+
   /* Custom CSS */
   /* ... */
 </style>

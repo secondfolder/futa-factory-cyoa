@@ -1,6 +1,6 @@
-<template lang="html">
-  <div 
-    :class="[{selected: isSelected(choiceData) && !hideNotSelected}, 'choice', {selectable}]" 
+<template>
+  <div
+    :class="[{selected: isSelected(choiceData) && !hideNotSelected}, 'choice', {selectable}]"
     @click="clicked"
   >
     <a v-if="choiceData.imgSource" class="imgSource" :href="choiceData.imgSource" @click.stop target="_blank">Image Source</a>
@@ -8,23 +8,23 @@
       <img v-if="choiceData.img" :src="imageSRC">
     </div>
     <h1 class="title" v-html="choiceData.title"></h1>
-    <div 
-      class="qty" 
-      v-if="isSelected(choiceData) && (choiceData.maxSelectable > 1 || choiceData.maxSelectable === undefined)" 
+    <div
+      class="qty"
+      v-if="isSelected(choiceData) && (choiceData.maxSelectable > 1 || choiceData.maxSelectable === undefined)"
       @click.stop
     >
       QTY:
       <strong>{{ qty }}</strong>
       <template v-if="choiceData.maxSelectable > 0"> (max of {{choiceData.maxSelectable}})</template>
-      <span 
-        @click="qty++" 
+      <span
+        @click="qty++"
         :class="{disabled: qty >= choiceData.maxSelectable}"
         v-if="selectable"
       >
         ➕
       </span>
-      <span 
-        @click="qty--" 
+      <span
+        @click="qty--"
         :class="{disabled: qty <= 1}"
         v-if="selectable"
       >
@@ -93,7 +93,7 @@
   }
 </script>
 
-<style scoped lang="scss">
+<style scoped lang="postcss">
   img {
     max-width: 100%;
   }
@@ -147,7 +147,7 @@
   .horizontal > * {
     margin: 0.5em 0;
   }
-  
+
   /* Custom CSS */
   .choice {
     background-color: unset;

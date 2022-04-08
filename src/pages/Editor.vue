@@ -15,24 +15,24 @@
           :level="1"
         />
       </template>
-      <textarea 
+      <textarea
         v-else
-        @focus="$event.target.select()" 
+        @focus="$event.target.select()"
         @click="$event.target.select()"
         v-model="deckDataJSON">
       </textarea>
     </main>
     <footer :class="{overBudget: remaining < 0}">
       <div>
-        <button 
-          v-if="$root.deckDataModified" 
+        <button
+          v-if="$root.deckDataModified"
           @click="$root.discardDraft"
           class="danger"
         >
           Discard Changes
         </button>
-        <button 
-          v-if="$root.deckDataModified" 
+        <button
+          v-if="$root.deckDataModified"
           @click="$router.push({name: 'Source'})"
           class="success"
         >
@@ -46,7 +46,7 @@
         </button>
       </div>
     </footer>
-  </div>  
+  </div>
 </template>
 
 <script>
@@ -88,14 +88,14 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style scoped>
   @import '../mixins/deck.scss';
   @import '../mixins/ui.scss';
   textarea {
     width: 100%;
     height: 40em;
   }
-  
+
   /* Custom CSS */
   /* ... */
 </style>

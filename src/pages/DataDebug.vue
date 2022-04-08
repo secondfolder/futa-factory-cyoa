@@ -24,7 +24,7 @@
       </p>
       <details v-else>
         <summary>
-          Bugger. Currently you have {{ metaDeckData.nodesWithInvalidIDs.length }} 
+          Bugger. Currently you have {{ metaDeckData.nodesWithInvalidIDs.length }}
           choice{{metaDeckData.nodesWithInvalidIDs.length > 1 ? 's' : ''}} in deckData.json with invalid ID's.<br>
           <em>Click for details</em>
         </summary>
@@ -35,11 +35,11 @@
         </ul>
       </details>
       <p v-if="metaDeckData.largestID <= metaDeckData.optimalMaxID">
-        🎉  Yay! Your largest id is smaller than or equal to the maximum recommended. 
+        🎉  Yay! Your largest id is smaller than or equal to the maximum recommended.
       </p>
       <details v-else>
         <summary>
-          At least one of your ID's is large enougth to unnecessarily increase the length of 
+          At least one of your ID's is large enougth to unnecessarily increase the length of
           share links.<br>
           <em>Click for details</em>
         </summary>
@@ -59,27 +59,27 @@
 
       <template v-if="metaDeckData.isIssue || metaDeckData.largestID > metaDeckData.optimalMaxID">
         <p v-if="metaDeckData.isIssue">
-          The following is a fixed copy of your deckData.json file. You should replace the contents of 
-          your current deckData.json file with this. 
+          The following is a fixed copy of your deckData.json file. You should replace the contents of
+          your current deckData.json file with this.
           <template v-if="metaDeckData.largestID > metaDeckData.optimalMaxID">
-            It also include some optimisations which will make share links shorter. <strong>Just be 
-            aware that although every effort has been taken to avoid doing so, this may break any existing share 
+            It also include some optimisations which will make share links shorter. <strong>Just be
+            aware that although every effort has been taken to avoid doing so, this may break any existing share
             links.</strong>
           </template>
         </p>
         <p v-else>
-          The following is an optimised copy of your deckData.json. <strong>Just aware that althougth 
+          The following is an optimised copy of your deckData.json. <strong>Just aware that althougth
           it tries it's best not to, it may break some existing share links.</strong>
         </p>
-        <textarea 
-          @focus="$event.target.select()" 
+        <textarea
+          @focus="$event.target.select()"
           @click="$event.target.select()"
           v-model="optimisedDataJSON">
         </textarea>
       </template>
       <router-link v-else :to="{name: 'Index'}">Go to Choices</router-link>
     </main>
-  </div>  
+  </div>
 </template>
 
 <script>
@@ -108,7 +108,7 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style scoped>
   @import '../mixins/ui.scss';
   #page {
     padding: 2em;
@@ -171,13 +171,13 @@ export default {
     transform: rotate(90deg);
   }
 
-  details[open] summary ~ * 
+  details[open] summary ~ *
   {
   animation: sweep .5s ease-in-out;
   animation-fill-mode: forwards;
   }
 
-  @keyframes sweep 
+  @keyframes sweep
   {
   0%    {opacity: 0; margin-left: 0em}
   100%  {opacity: 1; margin-left: 1em}
@@ -185,7 +185,7 @@ export default {
   details {
     margin: 1em 0;
   }
-  
+
   /* Custom CSS */
   /* ... */
 </style>

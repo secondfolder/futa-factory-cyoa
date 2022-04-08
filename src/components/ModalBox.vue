@@ -39,7 +39,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
   .modal-mask {
   position: fixed;
   z-index: 9998;
@@ -104,7 +104,7 @@ export default {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
   }
-  
+
   /* Custom CSS */
   /* ... */
 </style>

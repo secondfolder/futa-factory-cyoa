@@ -2,7 +2,7 @@
   <div id="page" :class="{hideNotSelected}">
     <main>
       <div v-if="selected.length === 0">
-        Nothing selected 
+        Nothing selected
       </div>
       <div v-else>
         <div v-if="this.$root.creativeMode" class="share-summary">
@@ -26,7 +26,7 @@
       </div>
       <modal-box v-if="showShareDetails" @close="showShareDetails = false">
         <h3 slot="header">Share Details</h3>
-        <div slot="body"> 
+        <div slot="body">
           <button type="button" @click="copyUrl">Copy Link</button>
           <div class="instructions">
             (or if the button doesn't work, select and copy the below text)
@@ -53,7 +53,7 @@
         </button>
       </div>
     </footer>
-  </div>  
+  </div>
 </template>
 
 <script>
@@ -106,7 +106,7 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style scoped>
   @import '../mixins/deck.scss';
   @import '../mixins/ui.scss';
   .share-summary {
@@ -121,7 +121,7 @@ export default {
   .modal-box .instructions {
     margin: 1em 0 0;
   }
-  
+
   /* Custom CSS */
   /* ... */
 </style>

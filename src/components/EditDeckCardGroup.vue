@@ -1,10 +1,10 @@
-<template lang="html">
+<template>
   <div>
-    <section 
+    <section
       v-if="groupData.title"
       :class="['groupHeader', 'level'+level]"
     >
-      <input class="title" v-model="groupData.title"></input>      
+      <input class="title" v-model="groupData.title"></input>
       <p v-if="level === 1" class="deckInfo">
         <input v-model="groupData.author" placeholder="Author">
         <input v-model="groupData.authorLink" placeholder="Author Link">
@@ -22,14 +22,14 @@
           type="number"
         ></input>
       </p>
-      <textarea 
-        class="description" 
+      <textarea
+        class="description"
         v-model="groupData.description"
         placeholder="Description"
       ></textarea>
       <p class="imageFilename">
         <span>Image Filename:</span>
-        <input 
+        <input
           placeholder="Image Filename"
           v-model="groupData.img"
         ></input>
@@ -40,7 +40,7 @@
       <span class="imageMsg" v-else-if="deckData.img">
         Image could not be found. Make sure an image with the same file name exists in the assets folder.
       </span>
-      <input 
+      <input
         v-if="imageExists || deckData.imgSource"
         class="imageSource"
         placeholder="Image Source"
@@ -48,9 +48,9 @@
       ></input>
     </section>
     <ul class="choice-group">
-      <li 
-        v-for="child in groupData.contains" 
-        :key="child.id" 
+      <li
+        v-for="child in groupData.contains"
+        :key="child.id"
         :class="[child.contains ? 'choiceGroup' : 'choice']"
       >
         <edit-deck-card-group
@@ -58,7 +58,7 @@
           :groupData="child"
           :level="level+1"
         />
-        <edit-deck-card-choice 
+        <edit-deck-card-choice
           v-else
           :choiceData="child"
         />
@@ -82,13 +82,13 @@
 }
 </script>
 
-<style scoped lang="scss">
+<style scoped>
   ul {
     padding-left: 0px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-  }  
+  }
   li {
     list-style-type: none;
     margin: 30px;
@@ -193,7 +193,7 @@
       padding: 0;
       padding-bottom: 1em;
     }
-    .groupHeader.level1, .groupHeader.level2, .groupHeader.level3, 
+    .groupHeader.level1, .groupHeader.level2, .groupHeader.level3,
     .groupHeader.level4, .groupHeader.level5 {
       padding-left: 0;
     }
@@ -215,7 +215,7 @@
       font-size: 1em;
     }
   }
-  
+
   /* Custom CSS */
   /* ... */
 </style>

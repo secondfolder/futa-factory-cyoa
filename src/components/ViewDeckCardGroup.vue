@@ -1,13 +1,13 @@
-<template lang="html">
+<template>
   <div>
-    <section 
+    <section
       v-if="groupData.title"
       :class="['groupHeader', 'level'+level]"
     >
       <span class="title">{{ groupData.title }}</span>
       <p class="deckInfo">
-        <a 
-          v-if="groupData.author && groupData.authorLink" 
+        <a
+          v-if="groupData.author && groupData.authorLink"
           :href="groupData.authorLink"
           target="_blank"
           v-text="'By ' + groupData.author"
@@ -22,9 +22,9 @@
           v{{ groupData.version }}
         </span>
       </p>
-      <p 
+      <p
         v-if="selectionRequirementsMsg"
-        :class="['selectionRequirements', {selectionRequirementsMet}]" 
+        :class="['selectionRequirements', {selectionRequirementsMet}]"
         v-html="selectionRequirementsMsg"
       ></p>
       <p class="description" v-if="groupData.description" v-html="groupData.description"></p>
@@ -36,11 +36,11 @@
       </a>
     </section>
     <ul class="choice-group">
-      <li 
-        v-for="child in visableContains" 
-        :key="child.id" 
+      <li
+        v-for="child in visableContains"
+        :key="child.id"
         :class="{
-          choiceGroup: child.contains, 
+          choiceGroup: child.contains,
           choice: !child.contains
         }"
       >
@@ -52,7 +52,7 @@
           :hideNotSelected="hideNotSelected"
           @selectionChanged="setSelection"
         />
-        <view-deck-card-choice 
+        <view-deck-card-choice
           v-else
           :choiceData="child"
           :selectable="selectable"
@@ -108,7 +108,7 @@
 }
 </script>
 
-<style scoped lang="scss">
+<style scoped>
   .deckInfo {
     font-style: italic;
   }
@@ -117,7 +117,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-  }  
+  }
   li {
     list-style-type: none;
     margin: 30px;
@@ -223,7 +223,7 @@
       padding: 0;
       padding-bottom: 1em;
     }
-    .groupHeader.level1, .groupHeader.level2, .groupHeader.level3, 
+    .groupHeader.level1, .groupHeader.level2, .groupHeader.level3,
     .groupHeader.level4, .groupHeader.level5 {
       padding-left: 0;
     }
@@ -245,7 +245,7 @@
       font-size: 1em;
     }
   }
-  
+
   /* Custom CSS */
   li.choice {
     flex: 0 1 13em;

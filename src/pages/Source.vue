@@ -1,8 +1,8 @@
 <template>
   <div id="page">
     <p>
-      To save, replace the contents of the file deckData.json (which you should find 
-      in the src folder) with the the following data. If you have used any images make sure the image file is placed 
+      To save, replace the contents of the file deckData.json (which you should find
+      in the src folder) with the the following data. If you have used any images make sure the image file is placed
       in the assets folder and that the filename is correct.
     </p>
     <p>
@@ -12,8 +12,8 @@
     <p>
       <strong>⚠️ Be careful you have followed these instuctions else you'll lose your changes. ⚠️</strong>
     </p>
-    <textarea 
-      @focus="$event.target.select()" 
+    <textarea
+      @focus="$event.target.select()"
       @click="$event.target.select()"
       v-model="deckDataJSON">
     </textarea>
@@ -32,7 +32,7 @@
         </button>
       </div>
     </footer>
-  </div>  
+  </div>
 </template>
 
 <script>
@@ -65,7 +65,7 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style scoped>
   @import '../mixins/deck.scss';
   @import '../mixins/ui.scss';
   #page {
@@ -76,7 +76,7 @@ export default {
     width: 100%;
     height: 40em;
   }
-  
+
   /* Custom CSS */
   /* ... */
 </style>
