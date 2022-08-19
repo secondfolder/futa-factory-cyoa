@@ -1,18 +1,24 @@
-import blar from "../../.glitch-assets?raw";
-
-var glitchAssets
-try {
-  if (true) {
-    glitchAssets = require('../../.glitch-assets?raw') // eslint-disable-line import/no-webpack-loader-syntax
-    glitchAssets = glitchAssets.split('\n').map(asset => {
+import glitchAssetsRaw from "../../.glitch-assets?raw";
+const glitchAssets = glitchAssetsRaw.split('\n').map(asset => {
       try {
         return JSON.parse(asset)
       } catch (e) {
       }
     }).filter(asset => asset)
-  }
-} catch (e) {
-}
+
+// var glitchAssets
+// try {
+//   if (true) {
+//     glitchAssets = require('../../.glitch-assets?raw') // eslint-disable-line import/no-webpack-loader-syntax
+//     glitchAssets = glitchAssets.split('\n').map(asset => {
+//       try {
+//         return JSON.parse(asset)
+//       } catch (e) {
+//       }
+//     }).filter(asset => asset)
+//   }
+// } catch (e) {
+// }
 export default {
   methods: {
     setSelection (choice, qty) {
@@ -153,8 +159,6 @@ export default {
       return JSON.stringify(deckDataCopy, keys, 2)
     },
     getAssetUrl (filename) {
-      console.log("cake1d")
-      return JSON.stringify(glitchAssets)
       var cdnEntry = glitchAssets && glitchAssets.find(entry => entry.name === filename)
       return cdnEntry ? cdnEntry.url : '/assets/' + filename
     }
@@ -164,8 +168,6 @@ export default {
       return glitchAssets
     },
     imageSrc () {
-      console.log("cake-", glitchAssets)
-      console.log("ww", blar)
       return this.getAssetUrl(this.deckData.img)
     }
   },
