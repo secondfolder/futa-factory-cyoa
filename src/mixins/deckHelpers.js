@@ -1,7 +1,9 @@
+import blar from "../../.glitch-assets?raw";
+
 var glitchAssets
 try {
-  if (process.env.ISGLITCH) {
-    glitchAssets = require('@/../.glitch-assets?raw') // eslint-disable-line import/no-webpack-loader-syntax
+  if (true) {
+    glitchAssets = require('../../.glitch-assets?raw') // eslint-disable-line import/no-webpack-loader-syntax
     glitchAssets = glitchAssets.split('\n').map(asset => {
       try {
         return JSON.parse(asset)
@@ -151,6 +153,8 @@ export default {
       return JSON.stringify(deckDataCopy, keys, 2)
     },
     getAssetUrl (filename) {
+      console.log("cake1d")
+      return JSON.stringify(glitchAssets)
       var cdnEntry = glitchAssets && glitchAssets.find(entry => entry.name === filename)
       return cdnEntry ? cdnEntry.url : '/assets/' + filename
     }
@@ -160,6 +164,8 @@ export default {
       return glitchAssets
     },
     imageSrc () {
+      console.log("cake-", glitchAssets)
+      console.log("ww", blar)
       return this.getAssetUrl(this.deckData.img)
     }
   },
