@@ -45,6 +45,20 @@ footer.overBudget .remaining {
   font-size: 3em;
   line-height: 0.6em;
 }
-  
+
+@media (max-width: 600px) {
+  footer {
+    font-size: 0.8em;
+  }
+  footer div > span {
+    margin: 0.2em;
+    padding: 0.2em;
+  }
+
+  footer div > button {
+    padding: 0.2em 0.6em;
+  }
+}
+
 /* Custom CSS */
 /* ... */
