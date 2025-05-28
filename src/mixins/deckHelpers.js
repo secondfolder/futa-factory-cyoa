@@ -159,8 +159,7 @@ export default {
       return JSON.stringify(deckDataCopy, keys, 2)
     },
     getAssetUrl (filename) {
-      var cdnEntry = glitchAssets && glitchAssets.find(entry => entry.name === filename)
-      return cdnEntry ? cdnEntry.url : '/assets/' + filename
+      return '/' + filename
     }
   },
   computed: {
