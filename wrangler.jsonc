@@ -1,0 +1,17 @@
+/**
+ * For more details on how to configure Wrangler, refer to:
+ * https://developers.cloudflare.com/workers/wrangler/configuration/
+ */
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "the-dick-deitys-inbred-cousin-cyoa",
+	"compatibility_date": "2025-05-28",
+	"assets": {
+		"not_found_handling": "single-page-application",
+    "html_handling": "drop-trailing-slash",
+    "directory": "./dist/"
+	},
+	"observability": {
+		"enabled": true
+	}
+}
