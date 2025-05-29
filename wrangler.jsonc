@@ -4,7 +4,7 @@
  */
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "the-dick-deitys-inbred-cousin-cyoa",
+	"name": "futa-factory-cyoa",
 	"compatibility_date": "2025-05-28",
 	"assets": {
 		"not_found_handling": "single-page-application",
